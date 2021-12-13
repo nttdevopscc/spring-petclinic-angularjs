@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'chmod +x mvnw'
-                sh './mvnw clean install -B -X'
+                sh './mvnw clean install -B'
             }
         }
         stage('Sonar') {
