@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Hi! This is build stage'
+                sh './mvnw clean install'
             }
         }
     }
