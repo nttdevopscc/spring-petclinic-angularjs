@@ -25,6 +25,10 @@ pipeline {
         stage('Docker') {
             steps {
                 echo 'Build docker image'
+                 sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
                 sh './mvnw clean install'
                 sh 'cd spring-petclinic-server'
                 sh 'mvn clean package docker:build'
