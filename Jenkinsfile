@@ -22,6 +22,9 @@ pipeline {
         stage('Docker') {
             steps {
                 echo 'Build docker image'
+                sh './mvnw clean install'
+                sh 'cd spring-petclinic-server'
+                sh 'mvn clean package docker:build'
             }
         }        
     }
