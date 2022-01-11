@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  user: nttadmin01
+  tasks:
+  - name: building docker image
+    command: docker build -t aashikarao/spring-petclinic-angularjs:{{ build_number }} .
