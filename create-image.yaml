@@ -19,3 +19,6 @@
 
   - name: remove image from server
     command: docker rmi aashikarao/spring-petclinic-angularjs:{{ build_number }}
+
+  - name: logout from dockerhub
+    command: docker logout
