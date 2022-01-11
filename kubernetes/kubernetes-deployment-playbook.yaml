@@ -1,0 +1,14 @@
+---
+- name: Create Deployment
+  hosts: localhost
+  user: nttadmin01
+
+  tasks:
+
+  - name: copy deployment file to server
+    copy:
+      src: petclinic-deployment.yaml
+      dest: /opt/kube-apps
+
+  - name: create a deployment
+    command: kubectl apply -f petclinic-deployment.yaml
