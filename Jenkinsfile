@@ -45,6 +45,9 @@ pipeline {
         stage("Build Docker Image") {
           steps {
             sh 'docker build -t aashikarao/spring-petclinic-angularjs:${BUILD_NUMBER} .'
+            sh 'docker login -u aashikarao -p jH:ibVXi6:kHEeC'
+            sh 'docker push aashikarao/spring-petclinic-angularjs:${BUILD_NUMBER}'
+            sh 'docker logout'
           }
         }
     }
