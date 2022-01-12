@@ -42,12 +42,11 @@ pipeline {
             }
           }
         }
-        stage("Build Docker Image") {
+        stage("Build Docker Image using Ansible") {
           steps {
-            sh 'docker build -t aashikarao/spring-petclinic-angularjs:${BUILD_NUMBER} .'
-            sh 'docker login -u aashikarao -p jH:ibVXi6:kHEeC'
-            sh 'docker push aashikarao/spring-petclinic-angularjs:${BUILD_NUMBER}'
-            sh 'docker logout'
+            withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+              sh 'ansible-playbook -e build_number=${BUILD_NUMBER} -e docker_username=${DOCKER_USERNAME} -e docker_password=${DOCKER_PASSWORD} create-image-playbook.yaml'
+            }
           }
         }
     }
