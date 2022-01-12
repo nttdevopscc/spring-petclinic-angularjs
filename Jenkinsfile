@@ -33,7 +33,7 @@ pipeline {
                 artifacts: [[artifactId: pom.artifactId, classifier: '', file: artifactPath, type: 'jar']],
                 credentialsId: 'nexus-user-credentials',
                 groupId: pom.groupId,
-                nexusUrl: 'http://10.0.2.38:8081',
+                nexusUrl: '10.0.2.38:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'ntt-repo',
