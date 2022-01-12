@@ -14,5 +14,10 @@ pipeline {
               }
             }
         }
+        stage('SonarQube Scan') {
+          steps {
+            sh './mvnw -B sonar:sonar -Dsonar.projectKey=spring-petclinic-angular -Dsonar.host.url=http://10.0.2.38:9000/sonarqube -Dsonar.login=b3a17b16e8766533bc5c077f2af4a6ee7e808ef2'
+          }
+        }
     }
 }
