@@ -42,5 +42,10 @@ pipeline {
             }
           }
         }
+        stage("Build Docker Image") {
+          steps {
+            sh 'docker build -t aashikarao/spring-petclinic-angularjs:${BUILD_NUMBER} .'
+          }
+        }
     }
 }
