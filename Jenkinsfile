@@ -42,7 +42,7 @@ pipeline {
             }
           }
         }
-        stage("Build Docker Image using Ansible") {
+        stage("Push to DockerHub") {
           steps {
             withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
               sh 'ansible-playbook -e build_number=${BUILD_NUMBER} -e docker_username=${DOCKER_USERNAME} -e docker_password=${DOCKER_PASSWORD} create-image-playbook.yaml -v'
