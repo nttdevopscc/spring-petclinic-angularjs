@@ -1,6 +1,6 @@
 ---
 - name: Deploy petclinic
-  hosts: localhostt
+  hosts: localhost
   user: nttadmin01
   tasks:
     - name: Create deployment to 3 pods on Kubernetes
