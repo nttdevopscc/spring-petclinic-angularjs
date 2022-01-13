@@ -56,5 +56,10 @@ pipeline {
             }
           }
         }
+        stage('Deploy') {
+          steps {
+            sh 'ansible-playbook kubernetes/deployment-playbook.yaml'
+          }
+        }
     }
 }
