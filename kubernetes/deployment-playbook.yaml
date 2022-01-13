@@ -12,4 +12,3 @@
       command: kubectl apply -f /opt/kube-apps/petclinic-service.yaml
       become: yes
       become_user: nttadmin01
-      become_password: "{{ ansible_become_password }}"
