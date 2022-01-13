@@ -58,7 +58,9 @@ pipeline {
         }
         stage('Deploy') {
           steps {
-            sh 'ansible-playbook kubernetes/deployment-playbook.yaml'
+            withCredentials([usernamePassword(credentialsId: 'EC2_User', passwordVariable: 'AWS_PASSWORD', usernameVariable: 'AWS_USER')]) {
+              sh 'ansible-playbook kubernetes/deployment-playbook.yaml -e ansible_become_password=${AWS_PASSWORD}'
+            }
           }
         }
     }
