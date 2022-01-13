@@ -22,7 +22,7 @@ pipeline {
           steps {
             // sh './mvnw -B sonar:sonar -Dsonar.projectKey=spring-petclinic-angular -Dsonar.host.url=http://10.0.2.38:9000/sonarqube -Dsonar.login=b3a17b16e8766533bc5c077f2af4a6ee7e808ef2'
             withSonarQubeEnv('SonarQube Server') {
-                sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=$PROJECT_NAME -Dsonar.sources=.'''
+                sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.java.binaries=spring-petclinic-server/target/classes/ -Dsonar.projectKey=$PROJECT_NAME -Dsonar.sources=.'''
             }
           }
         }
