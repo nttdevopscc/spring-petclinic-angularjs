@@ -1,14 +1,10 @@
 ---
 - name: Deploy petclinic
   hosts: localhost
-  user: nttadmin01
+  remote_user: nttadmin01
   tasks:
     - name: Create deployment to 3 pods on Kubernetes
       command: kubectl apply -f /opt/kube-apps/petclinic-deployment.yaml
-      become: yes
-      become_user: nttadmin01
 
     - name: Expose petclinic app as a service
       command: kubectl apply -f /opt/kube-apps/petclinic-service.yaml
-      become: yes
-      become_user: nttadmin01
