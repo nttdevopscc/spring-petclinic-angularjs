@@ -21,7 +21,7 @@ spec:
         image: aashikarao/spring-petclinic-angularjs
         imagePullPolicy: Always
         ports:
-        - containerPort: 8083
+        - containerPort: 8086
   strategy:
     type: RollingUpdate
     rollingUpdate:
